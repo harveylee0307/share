@@ -55,7 +55,7 @@
             console.log(ogDec[0].content, ogImg[0].content);
         });
         $('#FBshare').on('click',function () {
-            var link = document.location.hostname;
+            var link = document.location.hostname + document.location.pathname;
             var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ link ;
               console.log(shareLink);
             $(this).attr('href', shareLink);
