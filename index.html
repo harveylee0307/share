@@ -7,9 +7,9 @@
     <title>來抽抽抽抽籤</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="og:title" content="我在這裡抽了一支籤">
-    <meta name="og:description" content="">
+    <meta name="og:description" content="這是活動主頁">
     <meta name="og:type" content="website">
-    <meta name="og:image" content="">
+    <meta name="og:image" content="https://harveylee0307.github.io/share/images/0.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -27,43 +27,16 @@
     Share on Facebook
 </a>
     <script>
-        var fortunes = [
-            {
-                dec: '我抽到了第一籤',
-                img: 'images/1.png'
-            }, {
-                dec: '我抽到了第二籤',
-                img: 'images/2.png'
-            }, {
-                dec: '我抽到了第三籤',
-                img: 'images/3.png'
-            }, {
-                dec: '我抽到了第四籤',
-                img: 'images/4.png'
-            }, {
-                dec: '我抽到了第五籤',
-                img: 'images/5.png'
-            },
-        ]
-        var $ogDec = $('meta[name="og:description"]');
-        var $ogImg = $('meta[name="og:image"]');
-        var Dlocation = document.location.hostname + document.location.pathname;
-        //更換OG內容
+        var dl = document.location;
         $('#Fortune').on('change', function () {
             var s = $('select[name ="fortune"]').val();
-            // $ogDec[0].content = fortunes[s - 1].dec;
-            // $ogImg[0].content = fortunes[s - 1].img;
-            // console.log(ogDec[0].content, ogImg[0].content);
-            $ogDec.attr('content', fortunes[s - 1].dec);
-            $ogImg.attr('content', document.location.href+fortunes[s - 1].img);
-            console.log(document.location.href + fortunes[s - 1].img);
         });
         $('#FBshare').on('click',function () {
-            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ Dlocation ;
+            var n = $('select[name ="fortune"]').val();
+            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ dl.origin+'/share/' +n+'.html' ;
             //   console.log(shareLink);
             $(this).attr('href', shareLink);
         });
-
     </script>
 </body>
 
