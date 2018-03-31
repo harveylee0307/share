@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>來抽抽抽抽籤</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="我在這裡抽了一支籤">
+    <meta name="og:description" content="">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <p>選一支籤</p>
+    <select name="fortune" id="Fortune">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+<a id="FBshare" href="" target="_blank">
+    Share on Facebook
+</a>
+    <script>
+        var fortunes = [
+            {
+                dec: '我抽到了第一籤',
+                img: 'http://www.citygod.tw/images/fortune/1.png'
+            }, {
+                dec: '我抽到了第二籤',
+                img: 'http://www.citygod.tw/images/fortune/2.png'
+            }, {
+                dec: '我抽到了第三籤',
+                img: 'http://www.citygod.tw/images/fortune/3.png'
+            }, {
+                dec: '我抽到了第四籤',
+                img: 'http://www.citygod.tw/images/fortune/4.png'
+            }, {
+                dec: '我抽到了第五籤',
+                img: 'http://www.citygod.tw/images/fortune/5.png'
+            },
+        ]
+        var ogDec = $('meta[name="og:description"]');
+        var ogImg = $('meta[name="og:image"]');
+        //更換OG內容
+        $('#Fortune').on('change', function () {
+            var s = $('select[name ="fortune"]').val();
+            ogDec[0].content = fortunes[s - 1].dec;
+            ogImg[0].content = fortunes[s - 1].img;
+            console.log(ogDec[0].content, ogImg[0].content);
+        });
+        $('#FBshare').on('click',function () {
+            var link = document.location.href;
+            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ link ;
+              console.log(shareLink);
+            $(this).attr('href', shareLink);
+        });
+
+    </script>
+</body>
+
+</html>
