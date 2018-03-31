@@ -30,23 +30,24 @@
         var fortunes = [
             {
                 dec: '我抽到了第一籤',
-                img: 'http://www.citygod.tw/images/fortune/1.png'
+                img: 'images/1.png'
             }, {
                 dec: '我抽到了第二籤',
-                img: 'http://www.citygod.tw/images/fortune/2.png'
+                img: 'images/2.png'
             }, {
                 dec: '我抽到了第三籤',
-                img: 'http://www.citygod.tw/images/fortune/3.png'
+                img: 'images/3.png'
             }, {
                 dec: '我抽到了第四籤',
-                img: 'http://www.citygod.tw/images/fortune/4.png'
+                img: 'images/4.png'
             }, {
                 dec: '我抽到了第五籤',
-                img: 'http://www.citygod.tw/images/fortune/5.png'
+                img: 'images/5.png'
             },
         ]
         var $ogDec = $('meta[name="og:description"]');
         var $ogImg = $('meta[name="og:image"]');
+        var Dlocation = document.location.hostname + document.location.pathname;
         //更換OG內容
         $('#Fortune').on('change', function () {
             var s = $('select[name ="fortune"]').val();
@@ -54,11 +55,11 @@
             // $ogImg[0].content = fortunes[s - 1].img;
             // console.log(ogDec[0].content, ogImg[0].content);
             $ogDec.attr('content', fortunes[s - 1].dec);
-            $ogImg.attr('content', fortunes[s - 1].img);
+            $ogImg.attr('content', document.location.href+fortunes[s - 1].img);
+            console.log(document.location.href + fortunes[s - 1].img);
         });
         $('#FBshare').on('click',function () {
-            var link = document.location.hostname + document.location.pathname;
-            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ link ;
+            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ Dlocation ;
             //   console.log(shareLink);
             $(this).attr('href', shareLink);
         });
