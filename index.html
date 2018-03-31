@@ -45,19 +45,21 @@
                 img: 'http://www.citygod.tw/images/fortune/5.png'
             },
         ]
-        var ogDec = $('meta[name="og:description"]');
-        var ogImg = $('meta[name="og:image"]');
+        var $ogDec = $('meta[name="og:description"]');
+        var $ogImg = $('meta[name="og:image"]');
         //更換OG內容
         $('#Fortune').on('change', function () {
             var s = $('select[name ="fortune"]').val();
-            ogDec[0].content = fortunes[s - 1].dec;
-            ogImg[0].content = fortunes[s - 1].img;
-            console.log(ogDec[0].content, ogImg[0].content);
+            // $ogDec[0].content = fortunes[s - 1].dec;
+            // $ogImg[0].content = fortunes[s - 1].img;
+            // console.log(ogDec[0].content, ogImg[0].content);
+            $ogDec.attr('content', fortunes[s - 1].dec);
+            $ogImg.attr('content', fortunes[s - 1].img);
         });
         $('#FBshare').on('click',function () {
             var link = document.location.hostname + document.location.pathname;
             var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ link ;
-              console.log(shareLink);
+            //   console.log(shareLink);
             $(this).attr('href', shareLink);
         });
 
