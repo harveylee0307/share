@@ -17,6 +17,8 @@
 <body>
 
     <script>
+
+        var dl = document.location;
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '1769306596425213',
@@ -24,14 +26,9 @@
                 xfbml: true,
                 version: 'v2.12'
             });
-
-
             document.querySelector('#FBshare').addEventListener('click', function () {
-
                 var n = $('select[name ="fortune"]').val();
                 var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
-
-
                 FB.ui(
                     {
                         method: 'share',
@@ -41,9 +38,7 @@
                         console.log(response);
                     });
             });
-
         };
-
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -51,12 +46,7 @@
             js.src = "https://connect.facebook.net/zh_TW/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-
-
     </script>
-
-
     <p>選一支籤</p>
     <select name="fortune" id="Fortune">
         <option value="1">1</option>
@@ -68,7 +58,6 @@
     <button id="FBshare">
         Share on Facebook
     </button>
-
 </body>
 
 </html>
