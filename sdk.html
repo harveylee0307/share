@@ -28,7 +28,9 @@
             });
             document.querySelector('#FBshare').addEventListener('click', function () {
                 var n = $('select[name ="fortune"]').val();
-                var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
+                var shareLink = dl.origin + '/share/share' + n + '.html';
+                 console.log(shareLink);
+                //  FB.ui.href = shareLink;
                 FB.ui(
                     {
                         method: 'share',
