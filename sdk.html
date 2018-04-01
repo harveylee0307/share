@@ -26,19 +26,21 @@
             });
 
 
-        document.querySelector('#FBshare').addEventListener('click', function () {
-  FB.ui({
-                method: 'share_open_graph',
-                action_type: 'og.likes',
-                action_properties: JSON.stringify({
-                    object: 'https://developers.facebook.com/docs/',
-                })
-            }, function (response) {
-                // Debug response (optional)
-                console.log(response);
-            });
+            document.querySelector('#FBshare').addEventListener('click', function () {
 
-        });
+                var n = $('select[name ="fortune"]').val();
+                var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
+
+
+                FB.ui(
+                    {
+                        method: 'share',
+                        href: shareLink
+                    }, function (response) {
+                        // Debug response (optional)
+                        console.log(response);
+                    });
+            });
 
         };
 
@@ -51,14 +53,6 @@
         }(document, 'script', 'facebook-jssdk'));
 
 
- 
-        // $('#FBshare').on('click', function () {
-        //     FB.ui(
-        //         {
-        //             method: 'share',
-        //             href: 'https://developers.facebook.com/docs/'
-        //         }, function (response) { });
-        // });
 
     </script>
 
@@ -74,18 +68,7 @@
     <button id="FBshare">
         Share on Facebook
     </button>
-    <!-- <script>
-        var dl = document.location;
-        $('#Fortune').on('change', function () {
-            var s = $('select[name ="fortune"]').val();
-        });
-        $('#FBshare').on('click', function () {
-            var n = $('select[name ="fortune"]').val();
-            var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
-            //   console.log(shareLink);
-            $(this).attr('href', shareLink);
-        });
-    </script> -->
+
 </body>
 
 </html>
