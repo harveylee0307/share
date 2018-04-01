@@ -23,17 +23,17 @@
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
-<a id="FBshare" href="" target="_blank">
-    Share on Facebook
-</a>
+    <a id="FBshare" href="" target="_blank">
+        Share on Facebook
+    </a>
     <script>
         var dl = document.location;
         $('#Fortune').on('change', function () {
             var s = $('select[name ="fortune"]').val();
         });
-        $('#FBshare').on('click',function () {
+        $('#FBshare').on('click', function () {
             var n = $('select[name ="fortune"]').val();
-            var shareLink = "https://www.facebook.com/sharer/sharer.php?u="+ dl.origin+'/share/share' +n+'.html' ;
+            var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
             //   console.log(shareLink);
             $(this).attr('href', shareLink);
         });

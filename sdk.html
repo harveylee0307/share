@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>來抽抽抽抽籤-SDK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="我在這裡抽了一支籤-SDK">
+    <meta name="og:description" content="這是活動主頁">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="https://harveylee0307.github.io/share/images/0.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1769306596425213',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v2.12'
+            });
+
+
+        document.querySelector('#FBshare').addEventListener('click', function () {
+  FB.ui({
+                method: 'share_open_graph',
+                action_type: 'og.likes',
+                action_properties: JSON.stringify({
+                    object: 'https://developers.facebook.com/docs/',
+                })
+            }, function (response) {
+                // Debug response (optional)
+                console.log(response);
+            });
+
+        });
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/zh_TW/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+ 
+        // $('#FBshare').on('click', function () {
+        //     FB.ui(
+        //         {
+        //             method: 'share',
+        //             href: 'https://developers.facebook.com/docs/'
+        //         }, function (response) { });
+        // });
+
+    </script>
+
+
+    <p>選一支籤</p>
+    <select name="fortune" id="Fortune">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button id="FBshare">
+        Share on Facebook
+    </button>
+    <!-- <script>
+        var dl = document.location;
+        $('#Fortune').on('change', function () {
+            var s = $('select[name ="fortune"]').val();
+        });
+        $('#FBshare').on('click', function () {
+            var n = $('select[name ="fortune"]').val();
+            var shareLink = "https://www.facebook.com/sharer/sharer.php?u=" + dl.origin + '/share/share' + n + '.html';
+            //   console.log(shareLink);
+            $(this).attr('href', shareLink);
+        });
+    </script> -->
+</body>
+
+</html>
